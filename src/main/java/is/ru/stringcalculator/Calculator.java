@@ -3,11 +3,8 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		if(text.startsWith("//")){
-			text = text.substring(2);
-			char temp = text.charAt(0);
-			text = text.replace(text.charAt(0), ',');
-			text = text = text.substring(2);
+		if(newDelimiter(text)){
+			text = standardizeDelimiter(text);
 		}
 		if(contansNewLine(text)){
 			text = replaceNewLine(text);
@@ -44,4 +41,14 @@ public class Calculator {
     	return numbers.contains("\n");
     }
 
+    private static boolean newDelimiter(String numbers){
+    	return numbers.startsWith("//");
+    }
+
+    private static String standardizeDelimiter(String numbers){
+    		numbers = numbers.substring(2);
+			numbers = numbers.replace(numbers.charAt(0), ',');
+			numbers = numbers.substring(2);
+			return numbers;
+    }
 }
