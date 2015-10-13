@@ -3,13 +3,14 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
+		if(text.contains("\n")){
+			text = text.replace('\n', ',');
+		}
 		if(text.equals("")){
 			return 0;
-		}
-		else if(text.contains(",")){
+		}else if(text.contains(",")){
 			return sum(splitNumbers(text));
-		}
-		else
+		}else
 			return 1;
 	}
 
