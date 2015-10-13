@@ -49,4 +49,9 @@ public class CalculatorTest {
     	assertEquals(3, Calculator.add("//;\n1;2"));
     }
 
+    @Test
+    public void testAnotherDelimiter(){
+    	assertEquals(5, Calculator.add("//?\n2?3"));
+    }
+
 }
