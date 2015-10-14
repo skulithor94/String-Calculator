@@ -54,10 +54,10 @@ public class CalculatorTest {
     	assertEquals(5, Calculator.add("//?\n2?3"));
     }
 
-    @Test
+    @Test(expected=IllegalArgumentException.class)
     public void testOneNegative(){
-    	assertEquals("“Negatives not allowed: -1",
+    	assertEquals("Negatives not allowed: -1",
     	 Calculator.add("-1,2"));
     }
-    
+
 }
